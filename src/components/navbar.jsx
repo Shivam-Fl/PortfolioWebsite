@@ -33,7 +33,7 @@ export default function Navbar() {
   const closeMenu = () => setToggle(false);
 
   return (
-    <div className="mb-4 sticky top-4 sm:top-8">
+    <div className="mb-4 sticky top-0 py-3 bg-black z-10">
       <div className="flex justify-between align-center text-lg  sm:text-2xl">
         {/* Logo */}
 
@@ -66,7 +66,8 @@ export default function Navbar() {
                             boxShadow: "0px 30px 30px 0px rgba(0, 0, 0, 0.40), 0px 0px 5px 0px #FFACE4 inset, 0px -1px 8px 0px #9375B6 inset"
             }}
             className="border rounded-xl px-3 py-1 self-center font-['Inter']">
-              Contact me
+              <a href="#contact">Contact me</a>
+              
             </button>
           </a>
           <div className="-mr-2 flex md:hidden">

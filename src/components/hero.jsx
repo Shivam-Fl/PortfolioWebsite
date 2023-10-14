@@ -1,9 +1,9 @@
 export default function Hero() {
   return (
-    <div className="flex gap-y-8 flex-col">
+    <div className="flex gap-y-8 flex-col z-0">
       <div className="flex flex-col-reverse sm:flex-row  content-center items-center font-bold w-[80vw] m-auto mt-[1.5%] sm:mt-[6%] ">
         <div className="justify-self-start basis-2/3 flex flex-col gap-y-8 sm:gap-y-16 ">
-          <div className="relative">
+          <div className="relative z-0">
             {" "}
             <div className="absolute object-center -top-14 lg:-top-52 ">
               {" "}

@@ -2,12 +2,12 @@ import { work } from "./data";
 export default function Experience() {
   return (
     <div
-      className="font-outfit flex flex-col justify-center items-center text-center   "
+      className="font-outfit flex flex-col justify-center items-center text-center  min-h-[100vh]   "
       id="experience"
     >
-      <div className=" flex flex-col max-sm:pt-32  ">
+      <div className=" flex flex-col mt-[5%] max-sm:mt-[25%] " >
         <div
-          className="text-center text-2xl lg:text-6xl font-semibold z-10 "
+          className="text-center text-2xl lg:text-6xl font-semibold z-0 "
           style={{
             backgroundImage: "url(/assets/Ellipse338.png)",
             backgroundRepeat: "none",
