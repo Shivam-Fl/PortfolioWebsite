@@ -10,7 +10,7 @@ export default function Contact() {
     },
     {
       img: "/assets/contact/Website.svg",
-      link: "/",
+      link: "https://shivammishra.vercel.app/",
     },
   ];
   return (
