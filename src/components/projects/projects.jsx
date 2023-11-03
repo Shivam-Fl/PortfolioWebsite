@@ -4,7 +4,7 @@ export default function Projects() {
   return (
     <div
     className="font-outfit flex flex-col justify-center items-center text-center  min-h-[100vh]   "
-    id="experience"
+    id="projects"
   >
     <div className=" flex flex-col mt-[5%] max-sm:mt-[25%] " >
       <div
@@ -16,7 +16,7 @@ export default function Projects() {
           backgroundPosition: "center",
         }}
       >
-        <h2>WORK EXPERIENCE</h2>
+        <h2>Projects</h2>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-16 m-4">
         {projects.map((item, index) => {
