@@ -18,7 +18,9 @@ export default function Contact() {
       className="h-[100vh] font-outfit  flex flex-col gap-y-20   "
       id="contact"
     >
-      <h2 className="text-center text-4xl mt-[15%] max-sm:mt-[25%]">Contact Me</h2>
+      <h2 className="text-center text-4xl mt-[15%] max-sm:mt-[25%]">
+        Contact Me
+      </h2>
       <div className="flex flex-col-reverse gap-y-8 sm:flex-row h-full sm:gap-x-16 justify-center  ">
         <div className="flex flex-col justify-start basis-1/2 gap-y-[18%]  ">
           <div className="flex flex-col gap-y-4 sm:gap-y-8  ">
@@ -43,7 +45,7 @@ export default function Contact() {
               })}
             </div>
           </div>
-          <div className=" max-sm:flex justify-center content-center gap-x-4 max-sm:mt-[4%] " >
+          <div className=" max-sm:flex justify-center content-center gap-x-4 max-sm:mt-[4%] ">
             <div className="text-sm sm:text-xl flex  justify-start items-center gap-x-2">
               <i className="fa-regular fa-envelope"></i>{" "}
               <a href="mailto:shivam.r.mishra9120@gmail.com" data-gmail="true">
@@ -76,6 +78,18 @@ export default function Contact() {
               rows="5"
               placeholder="Message"
             ></textarea>
+            <button
+              className="px-10 py-2"
+              style={{
+                borderRadius: " 0.67513rem",
+                background:
+                  "linear-gradient(199deg, #A032AA 12.78%, rgba(48, 28, 124, 0.46) 148.58%)",
+                boxShadow:
+                  "0px 4.27347px 4.27347px 0px rgba(255, 255, 255, 0.55)",
+              }}
+            >
+              Contact
+            </button>
           </form>
         </div>
       </div>
