@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export default function Contact() {
   const data = [
     {
@@ -13,6 +15,54 @@ export default function Contact() {
       link: "https://shivammishra.vercel.app/",
     },
   ];
+
+  const [userData, setUserData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleData = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setUserData({ ...userData, [name]: value });
+   
+  };
+
+  const submit = async (e) => {
+    e.preventDefault();
+    const { name, email, message } = userData;
+    if(name && email && message){
+    const res = fetch (
+      "https://shivam-fl-default-rtdb.firebaseio.com/userDataRecords.json",
+      {
+      method : "POST",
+      headers : {
+      "Content-Type" : "application/json"
+      }
+    ,
+    body: JSON.stringify({name, email, message})
+  }
+
+    )
+
+    if(res){
+      alert("Form Submitted Successfully")
+      setUserData({
+        name: "",
+        email: "",
+        message: "",
+      })
+    }
+    else{
+      alert("Error in submitting form")
+    }
+  }
+  else{
+    alert('Please fill all the fields')
+  }
+  };
+
   return (
     <div
       className="h-[100vh] font-outfit  flex flex-col gap-y-20   "
@@ -59,16 +109,22 @@ export default function Contact() {
           </div>
         </div>
         <div className="sm:basis-1/2">
-          <form action="" className="  flex flex-col gap-y-6 ">
+          <form method="POST" className="  flex flex-col gap-y-6 ">
             <input
               className="bg-[#202328] p-4 rounded-lg w-full focus:border-[#202328]  focus:outline-[#202328]"
               type="text"
+              name="name"
               placeholder="Name"
+              value={userData.name}
+              onChange={handleData}
             />
             <input
               className="bg-[#202328] p-4 rounded-lg w-full focus:border-[#202328]  focus:outline-[#202328]"
               type="email"
+              name="email"
               placeholder="Email"
+              value={userData.email}
+              onChange={handleData}
             />
             <textarea
               className="bg-[#202328] p-4 rounded-lg w-full focus:border-[#202328]  focus:outline-[#202328]"
@@ -77,8 +133,11 @@ export default function Contact() {
               cols="30"
               rows="5"
               placeholder="Message"
+              value={userData.message}
+              onChange={handleData}
             ></textarea>
             <button
+              onClick={submit}
               className="px-10 py-2"
               style={{
                 borderRadius: " 0.67513rem",

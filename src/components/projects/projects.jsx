@@ -18,7 +18,7 @@ export default function Projects() {
       >
         <h2>Projects</h2>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-16 m-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10  gap-16 m-4">
         {projects.map((item, index) => {
           return (
             <div
