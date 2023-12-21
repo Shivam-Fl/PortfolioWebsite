@@ -3,6 +3,7 @@ import Contact from "./components/contact";
 import Hero from "./components/hero";
 import Navbar from "./components/navbar";
 import Projects from "./components/projects/projects";
+import Skills from "./components/skills";
 import Experience from "./components/work/experience";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <div className="h-[98vh]" id="home">
           <Hero />{" "}
         </div>
+        <Skills/>
         <Experience />
         <Projects/>
         <Contact/>

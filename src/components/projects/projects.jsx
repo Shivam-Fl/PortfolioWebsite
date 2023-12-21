@@ -7,17 +7,9 @@ export default function Projects() {
     id="projects"
   >
     <div className=" flex flex-col mt-[5%] max-sm:mt-[25%] " >
-      <div
-        className="text-center text-2xl lg:text-6xl font-semibold z-0 "
-        style={{
-          backgroundImage: "url(/assets/Ellipse338.png)",
-          backgroundRepeat: "none",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <h2>Projects</h2>
-      </div>
+      
+        <h2 className="text-center text-2xl lg:text-6xl font-semibold z-0 ">Projects</h2>
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-10  gap-16 m-4">
         {projects.map((item, index) => {
           return (

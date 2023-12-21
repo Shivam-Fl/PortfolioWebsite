@@ -68,7 +68,7 @@ export default function Contact() {
       className="h-[100vh] font-outfit  flex flex-col gap-y-20   "
       id="contact"
     >
-      <h2 className="text-center text-4xl mt-[15%] max-sm:mt-[25%]">
+      <h2 className="text-center text-2xl lg:text-6xl font-semibold z-0 mt-[15%] max-sm:mt-[25%] ">
         Contact Me
       </h2>
       <div className="flex flex-col-reverse gap-y-8 sm:flex-row h-full sm:gap-x-16 justify-center  ">
