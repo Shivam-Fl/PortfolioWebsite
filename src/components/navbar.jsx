@@ -1,105 +1,111 @@
-import { useState } from "react";
-import menu from "/assets/menu.svg";
-import close1 from "/assets/close1.svg";
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Home, Code, Zap, Briefcase, Mail } from 'lucide-react';
 
-const navLink = [
-  {
-    id: 0,
-    header: "Home",
-    link: "#home",
-  },
-  {
-    id: 1,
-    header: "Skills",
-    link: "#skills",
-  },
-  {
-    id: 2,
-    header: "Projects",
-    link: "#projects",
-  },
-  {
-    id: 3,
-    header: "Experience",
-    link: "#experience",
-  },
+const navLinks = [
+  { id: 0, header: "Home", link: "#home", icon: Home },
+  { id: 1, header: "Skills", link: "#skills", icon: Code },
+  { id: 2, header: "Projects", link: "#projects", icon: Zap },
+  { id: 3, header: "Experience", link: "#experience", icon: Briefcase },
 ];
-
-// ... (imports and navLink array remain the same)
 
 export default function Navbar() {
   const [toggle, setToggle] = useState(false);
+  const [activeLink, setActiveLink] = useState(null);
 
-  const handleClick = () => setToggle((prevToggle) => !prevToggle);
+  const handleClick = () => setToggle(!toggle);
   const closeMenu = () => setToggle(false);
 
   return (
-    <div className="mb-4 sticky top-0 py-3 bg-black z-10">
-      <div className="flex  justify-between align-center text-lg  sm:text-2xl">
-        {/* Logo */}
-        <h1 className=" font-zenDots font-bold justify-self-center self-center">Shivam</h1>
+    <nav className="fixed w-full top-0 z-50 bg-[#1a1a2e] shadow-xl">
+      <div className="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+        <motion.h1 
+          whileHover={{ scale: 1.1 }}
+          className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+        >
+          Shivam
+        </motion.h1>
 
-        {/* Navlinks */}
-        <div className="hidden md:flex self-center">
-          <div className="flex gap-x-8 lg:gap-x-20 self-center text-xl xl:text-3xl font-medium font-montserrat">
-            {navLink.map((step) => (
-              <a key={step.id} id={step.id} href={step.link}>
-                {step.header}
-              </a>
+        <div className="hidden md:flex items-center space-x-8">
+          <div className="flex space-x-6 bg-[#16213e] rounded-full px-6 py-2 shadow-lg">
+            {navLinks.map((link) => (
+              <motion.a
+                key={link.id}
+                href={link.link}
+                onClick={() => setActiveLink(link.id)}
+                className={`flex items-center space-x-2 px-3 py-1 rounded-full transition-all duration-300 ${
+                  activeLink === link.id 
+                    ? 'bg-purple-600 text-white' 
+                    : 'text-gray-300 hover:text-purple-300'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <link.icon size={20} />
+                <span>{link.header}</span>
+              </motion.a>
             ))}
           </div>
+
+          <motion.a 
+            href="#contact"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <button className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-full hover:from-pink-600 hover:to-purple-500 transition-all shadow-lg">
+              Contact Me
+            </button>
+          </motion.a>
         </div>
 
-        <div className="flex  gap-x-2 sm:gap-x-4 self-center   ">
-          <a href="">
-            <button
-              style={{
-                border: " 1px solid rgba(0, 0, 0, 0.50)",
-                background:
-                  "linear-gradient(180deg, rgba(254, 200, 241, 0.90) -22.92%, rgba(254, 200, 241, 0.00) 26.73%), radial-gradient(702.72% 378.76% at 29.94% 119.23%, #602EA6 0%, #D19088 100%)",
-                backgroundBlendMode: "overlay, normal",
-                boxShadow:
-                  "0px 30px 30px 0px rgba(0, 0, 0, 0.40), 0px 0px 5px 0px #FFACE4 inset, 0px -1px 8px 0px #9375B6 inset",
-              }}
-              className="border max-lg:text-lg rounded-xl px-3 py-1 self-center font-['Inter']"
-            >
-              <a href="#contact">Contact me</a>
+        <div className="md:hidden flex items-center space-x-4">
+          <motion.a 
+            href="#contact"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <button className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white rounded-full">
+              Contact
             </button>
-          </a>
-          <div className="-mr-2 flex md:hidden">
-            <button
-              type="button"
-              onClick={handleClick}
-              className="inline-flex items-center justify-center p-1 rounded-lg text-white hover:ring-white focus:outline-none focus:ring-2 focus:rig-offset-2 focus:ring-offset-white focus:ring-white z-20"
-            >
-              <span className="sr-only">Open main menu</span>
-              {toggle ? (
-                <img className="h-8 w-8" src={close1} alt="" />
-              ) : (
-                <img className="h-8 w-8" src={menu} alt="" />
-              )}
-            </button>
-          </div>
+          </motion.a>
+          
+          <motion.button 
+            onClick={handleClick}
+            whileTap={{ scale: 0.9 }}
+            className="text-white focus:outline-none"
+          >
+            {toggle ? 'X' : '☰'}
+          </motion.button>
         </div>
       </div>
 
-      {/* Mobile Nav */}
-      {toggle && (
-        <div className="fixed  left-0 w-full h-full  rounded-xl bg-opacity-5 bg-white backdrop-filter backdrop-blur-lg">
-          <div className="flex flex-col px-4 py-6 space-y-4">
-            {navLink.map((step) => (
-              <a
-                key={step.id}
-                className="text-center cursor-pointer text-gray-100 hover:text-[#8B70AD] block px-3 py-2 rounded-md text-2xl font-medium"
-                href={step.link}
-                onClick={closeMenu}
-              >
-                {step.header}
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
+      <AnimatePresence>
+        {toggle && (
+          <motion.div 
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            className="fixed inset-0 bg-[#1a1a2e] md:hidden"
+          >
+            <div className="flex flex-col items-center justify-center h-full space-y-8">
+              {navLinks.map((link) => (
+                <motion.a
+                  key={link.id}
+                  href={link.link}
+                  onClick={closeMenu}
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: link.id * 0.1 }}
+                  className="text-3xl text-gray-300 hover:text-purple-300 flex items-center space-x-4"
+                >
+                  <link.icon size={30} className="text-purple-400" />
+                  <span>{link.header}</span>
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
   );
 }

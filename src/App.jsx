@@ -8,10 +8,11 @@ import Experience from "./components/work/experience";
 
 function App() {
   return (
-    <div className=" text-white mx-4 mb-4 sm:mx-8 sm:mb-8 box-border flex justify-center items-center ">
-      <div className="">
-        <Navbar />
-        <div className="h-[98vh]" id="home">
+    <div className=" text-white  mb-4 sm:mb-8 box-border ">
+      <Navbar />
+      <div className="flex flex-col mt-20 justify-center items-center">
+        
+        <div className="my-10 sm:my-14 lg:my-24" id="home">
           <Hero />{" "}
         </div>
         <Skills/>

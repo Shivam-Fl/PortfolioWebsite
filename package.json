@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "framer-motion": "^11.13.1",
+    "lucide-react": "^0.460.0",
+    "my-react-app": "file:",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-slick": "^0.29.0",
