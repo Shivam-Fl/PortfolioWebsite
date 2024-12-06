@@ -73,7 +73,7 @@ const ProjectCard = ({ project }) => {
 
 export default function Projects() {
   return (
-    <div className="py-16 px-4" id="projects">
+    <div className="py-16 lg:py-24 px-4" id="projects">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: -50 }}

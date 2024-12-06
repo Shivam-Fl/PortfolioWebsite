@@ -88,7 +88,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="py-16 px-2 mx-4" id="contact">
+    <div className="py-16 lg:py-24 px-2 mx-4" id="contact">
       <div className="max-w-5xl ">
         <motion.h2
           initial={{ opacity: 0, y: -50 }}
